@@ -44,13 +44,13 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
+    
 
     <div class="collapse navbar-collapse" id="navbarMediumish">
 
         <!-- Begin Menu -->
-
-            <ul class="navbar-nav ml-auto">
-
+        <ul class="navbar-nav ml-auto">
+                {% include search-lunr.html %}
                 {% if page.url == "/" %}
                 <li class="nav-item active">
                 {% else %}
@@ -69,7 +69,7 @@
                 <a target="_blank" class="nav-link" href="https://twitter.com/kboda"><i class="fab fa-twitter"></i></a>
                 </li>
 
-                {% include search-lunr.html %}
+                
 
             </ul>
 
