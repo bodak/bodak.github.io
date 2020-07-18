@@ -302,6 +302,7 @@ span.post-read-more a:hover {
 .mediumnavigation .navbar-brand img {
     max-height: 30px;
     margin-right: 5px;
+    border-radius: 100%;
 }
 
 .mainheading h1.sitetitle {

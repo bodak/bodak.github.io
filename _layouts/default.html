@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png">
+<link rel="icon" href="{{ site.favicon }}">
 
 <title>{{ page.title }} | {{site.name}}</title>
 
@@ -37,10 +37,10 @@
 
     <!-- Begin Logo -->
     <a class="navbar-brand" href="{{ site.baseurl }}/">
-    <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
+    <img src="{{ site.baseurl }}/{{ site.logo }}">
     </a>
     <!-- End Logo -->
-
+    {{ site.name }}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -56,27 +56,17 @@
                 {% else %}
                 <li class="nav-item">
                 {% endif %}
-                <a class="nav-link" href="{{ site.baseurl }}/index.html">Blog</a>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/bodak"><i class="fab fa-github"></i></a>
                 </li>
 
                 <li class="nav-item">
-                <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
+                <a target="_blank" class="nav-link" href="https://linkedin.com/in/kboda"><i class="fab fa-linkedin"></i></a>
                 </li>
 
                 <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
-                </li>
-
-                <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
-                </li>
-
-                <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
-                </li>
-
-                <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                <a target="_blank" class="nav-link" href="https://twitter.com/kboda"><i class="fab fa-twitter"></i></a>
                 </li>
 
                 {% include search-lunr.html %}
@@ -96,15 +86,6 @@
 
 <div class="container">
 
-<!-- Site Title
-================================================== -->
-<div class="mainheading">
-    <h1 class="sitetitle">{{ site.name }}</h1>
-    <p class="lead">
-        {{ site.description }}
-    </p>
-</div>
-
 <!-- Content
 ================================================== -->
 <div class="main-content">
@@ -114,31 +95,6 @@
     
 </div>
 
-<!-- Categories Jumbotron
-================================================== -->
-<div class="jumbotron fortags">
-	<div class="d-md-flex h-100">
-		<div class="col-md-4 transpdark align-self-center text-center h-100">
-            <div class="d-md-flex align-items-center justify-content-center h-100">
-                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
-            </div>
-		</div>
-		<div class="col-md-8 p-5 align-self-center text-center">
-            {% assign categories_list = site.categories %}
-            {% if categories_list.first[0] == null %}
-                {% for category in categories_list %}
-                    <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a>
-                {% endfor %}
-            {% else %}
-                {% for category in categories_list %}
-                    <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a>
-                {% endfor %}
-            {% endif %}
-            {% assign categories_list = nil %}
-		</div>
-	</div>
-</div>
-
 <!-- Begin Footer
 ================================================== -->
 <footer class="footer">
@@ -146,9 +102,6 @@
         <div class="row">
             <div class="col-md-6 col-sm-6 text-center text-lg-left">
                 Copyright © {{ site.time | date: "%Y" }} {{ site.name }} 
-            </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
             </div>
         </div>
     </div>
