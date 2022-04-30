@@ -21,7 +21,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-archives
-    
+
 # Archives
 jekyll-archives:
   enabled:
@@ -29,11 +29,11 @@ jekyll-archives:
   layout: archive
   permalinks:
     category: '/category/:name/'
-    
-# Pagination 
+
+# Pagination
 paginate: 6
 paginate_path: /page:num/
-    
+
 # Other
 markdown: kramdown
 
@@ -44,6 +44,7 @@ kramdown:
     block:
       line_numbers: true
 
+issues_repo: bodak/bodak.github.io
 
 # Lazy Images ("enabled" or "disabled")
 lazyimages: "enabled"
