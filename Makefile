@@ -1,8 +1,11 @@
-build:
-    docker run -ti --rm -v .:/srv/jekyll:rw -e JEKYLL_ROOTLESS=1 jekyll/jekyll jekyll new .
+init:
+	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -e JEKYLL_ROOTLESS=1 jekyll/jekyll jekyll new .
+
+install:
+	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -e JEKYLL_ROOTLESS=1 jekyll/jekyll bundle install
 
 serve:
-	docker run -ti --rm -v .:/srv/jekyll:rw -p 4001:4000 -e JEKYLL_ROOTLESS=1 jekyll/jekyll jekyll serve --force_polling
+	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -p 4001:4000 -e JEKYLL_ROOTLESS=1 jekyll/jekyll jekyll serve --force_polling
 
 update:
-	docker run -ti --rm -v .:/srv/jekyll:rw -e JEKYLL_ROOTLESS=1 jekyll/jekyll bundle update
+	podman run -it --rm -v $$PWD:/srv/jekyll:rw -e JEKYLL_ROOTLESS=1 jekyll/jekyll bundle update
