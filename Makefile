@@ -8,4 +8,4 @@ serve:
 	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -p 4001:4000 -e JEKYLL_ROOTLESS=1 jekyll/jekyll jekyll serve --force_polling
 
 update:
-	podman run -it --rm -v $$PWD:/srv/jekyll:rw -e JEKYLL_ROOTLESS=1 jekyll/jekyll bundle update
+	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -e JEKYLL_ROOTLESS=1 jekyll/jekyll bundle update
