@@ -1,11 +1,20 @@
+IMAGE=ghcr.io/github/pages-gem:v231
+
 init:
-	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -e JEKYLL_ROOTLESS=1 jekyll/jekyll jekyll new .
+	podman run -it --rm -v "$(PWD):/src/site" $(IMAGE) jekyll new .
 
 install:
-	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -e JEKYLL_ROOTLESS=1 jekyll/jekyll bundle install
+	podman run -it --rm -v "$(PWD):/src/site" -w /src/site $(IMAGE) bundle install
 
 serve:
-	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -p 4001:4000 -e JEKYLL_ROOTLESS=1 jekyll/jekyll jekyll serve --force_polling
+	podman run -it --rm -v "$(PWD):/src/site" -w /src/site -p 4000:4000 $(IMAGE) make start-server
 
 update:
-	podman run -it --rm -v "$$PWD:/srv/jekyll:rw" -e JEKYLL_ROOTLESS=1 jekyll/jekyll bundle update
+	podman run -it --rm -v "$(PWD):/src/site" -w /src/site $(IMAGE) bundle update
+
+run:
+	podman run -it --rm -v "$(PWD):/src/site" -w /src/site $(IMAGE) /bin/bash
+
+start-server:
+	bundle install
+	jekyll serve -H 0.0.0.0 -p 4000
